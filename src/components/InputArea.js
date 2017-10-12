@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { addNewMessage } from '../actions'
 
 class InputArea extends React.Component {
   state = { message: '' }
@@ -10,10 +11,7 @@ class InputArea extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    this.props.dispatch({
-      type: 'ADD_NEW_MESSAGE',
-      message: this.state.message
-    })
+    this.props.addNewMessage(this.state.message)
     this.setState({ message: '' })
   }
 
@@ -23,8 +21,8 @@ class InputArea extends React.Component {
             onSubmit={this.handleSubmit}>
         <div className="InputArea_Field">
           <input type="text"
-                 onChange={ this.handleInput }
-                 value={ this.state.message }/>
+                 onChange={this.handleInput}
+                 value={this.state.message}/>
         </div>
         <button className="InputArea_Button"
                 type="submit">
@@ -35,5 +33,8 @@ class InputArea extends React.Component {
   }
 }
 
-export default connect()(InputArea)
+export default connect(
+  null,
+  { addNewMessage }
+)(InputArea)
 

@@ -1,6 +1,7 @@
 import { applyMiddleware, createStore } from 'redux'
 import { addMessageReducer } from './reducers'
 import logger from 'redux-logger'
+import thunk from 'redux-thunk'
 
 const INITIAL_STATE = {
   messages: [
@@ -29,6 +30,9 @@ export default () => {
   return createStore(
     addMessageReducer,
     INITIAL_STATE,
-    applyMiddleware(logger)
+    applyMiddleware(
+      logger,
+      thunk
+    )
   )
 }
