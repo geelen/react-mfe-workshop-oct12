@@ -1,14 +1,16 @@
 import React from 'react'
 
-const Entry = () => (
+const Entry = ({ message }) => (
   <div className="Entry">
     <img className="Entry_Avatar"
-         alt="Avatar for Bill Murray"
-         src="http://fillmurray.com/96/96"/>
+         alt={`Avatar for ${message.name}`}
+         src={message.avatar}/>
     <div className="Entry_Lines">
-      <div>Line one</div>
-      <div>Line two</div>
-      <div>Line three</div>
+      {
+        message.lines.map(line => (
+          <div>{ line }</div>
+        ))
+      }
     </div>
   </div>
 )
