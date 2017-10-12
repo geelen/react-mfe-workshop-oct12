@@ -1,5 +1,4 @@
 import React from 'react'
-import { observer } from 'mobx-react'
 
 const Entry = ({ message }) => (
   <div className="Entry">
@@ -16,4 +15,4 @@ const Entry = ({ message }) => (
   </div>
 )
 
-export default observer(Entry)
+export default Entry

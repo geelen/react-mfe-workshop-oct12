@@ -1,5 +1,4 @@
 import React from 'react'
-import { addMessage } from '../actions'
 
 class InputArea extends React.Component {
   state = { message: '' }
@@ -10,7 +9,7 @@ class InputArea extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    addMessage(this.state.message)
+    //addMessage(this.state.message)
     this.setState({ message: '' })
   }
 
