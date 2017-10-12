@@ -2,52 +2,49 @@ import React from 'react'
 import logo from './logo.svg'
 import './App.css'
 
-const AppHeader = (props) => {
-  console.log("Rendering AppHeader")
-  return (
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo"/>
-      <h1 className="App-title">
-        Welcome to React
-        {props.clicked ? '!!!!' : ''}
-      </h1>
-    </header>
-  )
-}
+const AppHeader = ({ greeting }) => (
+  <header className="App-header">
+    <img src={logo} className="App-logo" alt="logo"/>
+    <h1 className="App-title">
+      {greeting}
+    </h1>
+  </header>
+)
 
-const obj = { a: 1, b: 2, c: 3, d: 5 }
-console.log(obj)
+const AppIntro = () => (
+  <p className="App-intro">
+    To get started, edit <code>src/App.js</code> and save to reload.
+  </p>
+)
 
-const { foo, ...otherKeys } = obj
-console.log(foo, otherKeys)
-
-const AppIntro = () => {
-  console.log("Rendering AppIntro")
-  return (
-    <p className="App-intro">
-      To get started, edit <code>src/App.js</code> and save to reload.
-    </p>
-  )
-}
+const AppButton = ({ onClick, icon, children }) => (
+  <p>
+    <button type="button" onClick={onClick}>
+      <span role="img" aria-label="icon">{icon} </span>
+      {children}
+    </button>
+  </p>
+)
 
 class App extends React.Component {
-  state = { clicked: false }
+  state = { greeting: 'Welcome to React' }
 
   handleClick = () => {
-    this.setState({ clicked: !this.state.clicked })
+    const nextGreeting = this.state.greeting.endsWith('!!!!!')
+      ? 'Welcome to React'
+      : this.state.greeting + '!'
+
+    this.setState({ greeting: nextGreeting })
   }
 
   render() {
-    console.log("Rendering App")
     return (
       <div className="App">
-        <AppHeader clicked={this.state.clicked}/>
+        <AppHeader greeting={this.state.greeting}/>
         <AppIntro/>
-        <p>
-          <button type="button" onClick={this.handleClick}>
-            Click me!
-          </button>
-        </p>
+        <AppButton onClick={this.handleClick} icon="✅">
+          Click me!
+        </AppButton>
       </div>
     )
   }
