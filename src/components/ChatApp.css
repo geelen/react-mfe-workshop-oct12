@@ -1,0 +1,56 @@
+.ChatApp {
+  height: 100vh;
+}
+
+.ChatWindow {
+  height: calc(100% - 5rem);
+  overflow: hidden;
+  padding: 0.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.Entry {
+  display: flex;
+  margin: 0.5rem 0;
+}
+
+.Entry_Avatar {
+  border-radius: 0.5rem;
+  width: 4rem;
+  height: 4rem;
+  margin-right: 1rem;
+}
+
+.Entry_Lines {
+  line-height: 1.4;
+}
+
+.InputArea {
+  height: 4rem;
+  background: cadetblue;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.InputArea_Field {
+  flex-grow: 1;
+}
+.InputArea_Field > input {
+  width: calc(100% - 3rem);
+  border-radius: 0.5rem;
+  border: none;
+  font-size: 1.25rem;
+  padding: 0.333rem 1rem;
+}
+
+.InputArea_Button {
+  font-size: 1.5rem;
+  padding: 0.25rem 1.5rem;
+  border:none;
+  background: midnightblue;
+  color: white;
+  border-radius: 0.5rem;
+}
