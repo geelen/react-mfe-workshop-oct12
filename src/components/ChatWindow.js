@@ -1,10 +1,12 @@
 import React from 'react'
 import Entry from './Entry'
+import { observer } from 'mobx-react'
+import store from '../store'
 
-const ChatWindow = ({ messages }) => (
+const ChatWindow = () => (
   <div className="ChatWindow">
     {
-      messages.map((message, i) => (
+      store.messages.map((message, i) => (
         <Entry key={i}
                message={message}/>
       ))
@@ -12,4 +14,4 @@ const ChatWindow = ({ messages }) => (
   </div>
 )
 
-export default ChatWindow
+export default observer(ChatWindow)

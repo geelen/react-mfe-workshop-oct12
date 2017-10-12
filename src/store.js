@@ -1,4 +1,6 @@
-const store = {
+import { observable } from 'mobx'
+
+const store = observable({
   messages: [
     {
       avatar: 'http://fillmurray.com/96/96',
@@ -19,15 +21,6 @@ const store = {
       ],
     },
   ]
-}
-export default store
+})
 
-export const addMessage = (message) => {
-  store.messages = store.messages.concat({
-    avatar: 'http://fillmurray.com/88/88',
-    username: 'Me',
-    lines: [
-      message
-    ],
-  })
-}
+export default store
