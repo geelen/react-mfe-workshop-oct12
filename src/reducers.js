@@ -2,7 +2,7 @@
 
 export const addMessageReducer = (old_state, action) => {
 
-  if (action.type === "ADD_MESSAGE") {
+  if (action.type === "ADD_NEW_MESSAGE") {
     let old_messages = old_state.messages
     const last_message = old_messages[old_messages.length - 1]
 
@@ -11,7 +11,7 @@ export const addMessageReducer = (old_state, action) => {
       return {
         ...old_state,
         messages: [
-          ...old_messages.slice(old_messages.length - 1),
+          ...old_messages.slice(0, old_messages.length - 1),
           {
             ...last_message,
             lines: [

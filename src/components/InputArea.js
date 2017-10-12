@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 class InputArea extends React.Component {
   state = { message: '' }
@@ -9,7 +10,10 @@ class InputArea extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    //addMessage(this.state.message)
+    this.props.dispatch({
+      type: 'ADD_NEW_MESSAGE',
+      message: this.state.message
+    })
     this.setState({ message: '' })
   }
 
@@ -31,5 +35,5 @@ class InputArea extends React.Component {
   }
 }
 
-export default InputArea
+export default connect()(InputArea)
 
