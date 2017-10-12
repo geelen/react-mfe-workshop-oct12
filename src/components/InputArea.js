@@ -9,12 +9,8 @@ class InputArea extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    console.log(this.state.message)
+    this.props.onNewMessage(this.state.message)
     this.setState({ message: '' })
-  }
-
-  componentDidMount() {
-    // this is the first time the DOM is there
   }
 
   render() {
