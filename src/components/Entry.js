@@ -7,8 +7,8 @@ const Entry = ({ message }) => (
          src={message.avatar}/>
     <div className="Entry_Lines">
       {
-        message.lines.map(line => (
-          <div>{ line }</div>
+        message.lines.map((line, i) => (
+          <div key={i}>{ line }</div>
         ))
       }
     </div>

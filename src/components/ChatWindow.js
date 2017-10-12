@@ -25,8 +25,9 @@ const messages = [
 const ChatWindow = () => (
   <div className="ChatWindow">
     {
-      messages.map(message => (
-        <Entry message={message}/>
+      messages.map((message, i) => (
+        <Entry key={i}
+               message={message}/>
       ))
     }
   </div>

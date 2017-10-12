@@ -13,9 +13,14 @@ class InputArea extends React.Component {
     this.setState({ message: '' })
   }
 
+  componentDidMount() {
+    // this is the first time the DOM is there
+  }
+
   render() {
     return (
-      <form className="InputArea" onSubmit={this.handleSubmit}>
+      <form className="InputArea"
+            onSubmit={this.handleSubmit}>
         <div className="InputArea_Field">
           <input type="text"
                  onChange={ this.handleInput }
@@ -31,3 +36,4 @@ class InputArea extends React.Component {
 }
 
 export default InputArea
+
