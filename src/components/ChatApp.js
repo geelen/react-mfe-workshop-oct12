@@ -2,47 +2,18 @@ import React from 'react'
 import './ChatApp.css'
 import InputArea from './InputArea'
 import ChatWindow from './ChatWindow'
+import store, { addMessage } from '../store'
 
 class ChatApp extends React.Component {
-  state = {
-    messages: [
-      {
-        avatar: 'http://fillmurray.com/96/96',
-        username: 'Bill Murray',
-        lines: [
-          'Line one',
-          'Line two',
-          'Line three',
-        ],
-      },
-      {
-        avatar: 'http://fillmurray.com/94/94',
-        username: 'Bill Murray the Second',
-        lines: [
-          'Another line one',
-          'Another line two',
-          'Another line three',
-        ],
-      },
-    ]
-  }
-
   handleNewMessage = (message) => {
-    this.setState({
-      messages: this.state.messages.concat({
-        avatar: 'http://fillmurray.com/88/88',
-        username: 'Me',
-        lines: [
-          message
-        ],
-      })
-    })
+    addMessage(message)
+    this.forceUpdate()
   }
 
   render() {
     return (
       <div className="ChatApp">
-        <ChatWindow messages={this.state.messages}/>
+        <ChatWindow messages={store.messages}/>
         <InputArea onNewMessage={this.handleNewMessage}/>
       </div>
     )
