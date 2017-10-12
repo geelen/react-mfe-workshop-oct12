@@ -2,15 +2,6 @@ import React, { Component } from 'react'
 import logo from './logo.svg'
 import './App.css'
 
-class AsyncButton extends Component {
-  render() {
-    console.log(this.props)
-    return <button onClick={this.props.onClick}>
-      Click me!
-    </button>
-  }
-}
-
 class App extends Component {
   render() {
     return (
@@ -22,12 +13,6 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <AsyncButton foo="bar"
-                     baz="boo"
-                     a={5}
-                     b={() => 6}
-                     onClick={() => console.log('Clicked!')}
-        />
       </div>
     )
   }
